@@ -1,0 +1,18 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: sms-service
+  rabbitmq:
+    host: 192.168.43.114
+    username: fengyang
+    password: fengyang
+    virtual-host: /fengyang
+  redis:
+    host: 192.168.43.114
+fy:
+  sms:
+    accessKeyId:   # 你自己的accessKeyId
+    accessKeySecret:    # 你自己的AccessKeySecret
+    signName:    # 签名名称
+    verifyCodeTemplate:    # 模板名称

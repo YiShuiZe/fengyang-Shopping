@@ -1,0 +1,39 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: item-service
+  datasource:
+    name: fengyang_DS
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid相关配置
+    driver-class-name: com.mysql.jdbc.Driver
+    #基本属性
+    url: jdbc:mysql://localhost:3306/cloudDB02?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+    username: root
+    password: Yangsha130333
+  rabbitmq:
+    host: 192.168.43.110
+    username: fengyang
+    password: fengyang
+    virtual-host: /fengyang
+    template:
+      retry:
+        enabled: true
+        initial-interval: 10000ms
+        max-interval: 30000ms
+        multiplier: 2
+      exchange: fy.item.exchange
+    publisher-confirms: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+  instance:
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.fengyang.order.pojo

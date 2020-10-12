@@ -1,0 +1,27 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: auth-service
+  main:
+      allow-bean-definition-overriding: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka
+    registry-fetch-interval-seconds: 10
+  instance:
+    lease-renewal-interval-in-seconds: 5 # 每隔5秒发送一次心跳
+    lease-expiration-duration-in-seconds: 10 # 10秒不发送就过期
+    prefer-ip-address: true
+    ip-address: 127.0.0.1
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+ly:
+  jwt:
+    secret: fengyang@Login(Auth}*^31)&fengyang%df3t5 # 登录校验的密钥
+    pubKeyPath: /home/yang/disk30/fengyang/rsa/id_rsa.pub # 公钥地址
+    priKeyPath: /home/yang/disk30/fengyang/rsa/id_rsa.pri # 私钥地址
+    expire: 30 # 过期时间,单位分钟
+    cookieName: LY_TOKEN
